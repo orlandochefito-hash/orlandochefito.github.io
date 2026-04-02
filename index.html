@@ -2,29 +2,171 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Portfólio profissional de Orlando Chefito - Desenvolvedor Full Stack especializado em HTML5, CSS3, JavaScript, Node.js, Java, PHP, SQL e MySQL">
-    <meta name="keywords" content="desenvolvedor full stack, programador, Moçambique, portfólio, Orlando Chefito">
-    <meta name="author" content="Orlando Chefito">
-    <title>Orlando Chefito | Arquiteto Digital Full-Stack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orlando Chefito | Portfólio de Desenvolvedor</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        /* Ajustes para normalizar tamanhos de letra */
+        body {
+            font-size: 16px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+        }
+        
+        .hero-description {
+            font-size: 1.3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.4rem;
+        }
+        
+        .project-info h3 {
+            font-size: 1.4rem;
+        }
+        
+        .project-info p {
+            font-size: 1rem;
+        }
+        
+        .project-tech span {
+            font-size: 0.9rem;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.4rem;
+        }
+        
+        .contact-card p {
+            font-size: 1.1rem;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            font-size: 1rem;
+        }
+        
+        .btn {
+            font-size: 1.1rem;
+        }
+        
+        .footer p {
+            font-size: 1rem;
+        }
+        
+        .social-links a {
+            font-size: 1.8rem;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Estilo para mensagem do formulário */
+        .form-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-message.success {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .form-message.error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navegação Principal -->
+    <!-- Navegação - Links internos abrem na mesma aba -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <span class="logo-text">OC</span>
-                <span class="logo-dot">.</span>
-            </a>
+            <a href="#home" class="nav-logo">OC</a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Início</a></li>
-                <li><a href="#about" class="nav-link">Sobre</a></li>
-                <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                <li><a href="#projects" class="nav-link">Projetos</a></li>
-                <li><a href="#contact" class="nav-link">Contato</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Projectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -34,100 +176,45 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Secção Hero -->
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-text">Bem-vindo ao meu universo digital</span>
-                </div>
-                <h1 class="hero-title">
-                    Orlando <span class="gradient-text">Chefito</span>
-                </h1>
+                <h1 class="hero-title">Orlando Chefito</h1>
                 <p class="hero-subtitle">Desenvolvedor Full Stack</p>
-                <p class="hero-description">
-                    Transformando ideias em soluções digitais inovadoras com código limpo e arquitetura escalável.
-                    Especialista em criar experiências web que conectam pessoas e negócios.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Vamos Conectar
-                    </a>
-                    <a href="#projects" class="btn btn-outline">
-                        <i class="fas fa-arrow-down"></i> Ver Projetos
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="stat-value">3+</span>
-                        <span class="stat-label">Anos Exp.</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="stat-value">15+</span>
-                        <span class="stat-label">Projetos</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="stat-value">10+</span>
-                        <span class="stat-label">Clientes</span>
-                    </div>
-                </div>
+                <p class="hero-description">Criando experiências web bonitas e funcionais desde Matola-Machava-Km15</p>
+                <a href="#contact" class="btn btn-primary">Entre em Contacto</a>
             </div>
             <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Orlando Chefito - Desenvolvedor Full Stack">
-                </div>
-                <div class="floating-elements">
-                    <div class="float-icon html">&lt;/&gt;</div>
-                    <div class="float-icon js">{ }</div>
-                    <div class="float-icon node">⚡</div>
-                </div>
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Espaço de trabalho do desenvolvedor">
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Secção Sobre -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Quem sou</span>
-                <h2 class="section-title">Sobre <span class="gradient-text">Mim</span></h2>
-                <div class="section-divider"></div>
-            </div>
+            <h2 class="section-title">Sobre Mim</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <div class="image-frame">
-                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Setup de programação">
-                    </div>
-                    <div class="experience-badge">
-                        <span class="exp-years">3+</span>
-                        <span class="exp-text">Anos de<br>Expertise</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Setup de programação">
                 </div>
                 <div class="about-text">
-                    <h3>Arquiteto de Soluções Digitais</h3>
-                    <p>Sou Orlando Chefito, um desenvolvedor full-stack apaixonado por tecnologia e inovação, baseado em Matola-Machava-Km15, Moçambique. Minha jornada no mundo da programação é movida pela missão de criar soluções que realmente fazem a diferença na vida das pessoas e no crescimento dos negócios.</p>
-                    <p>Com expertise em múltiplas tecnologias como JavaScript, Node.js, Java, PHP e bancos de dados SQL/MySQL, desenvolvo aplicações web robustas, escaláveis e com experiência de usuário excepcional. Acredito que código limpo e arquitetura bem pensada são a base para produtos digitais de sucesso.</p>
+                    <h3>Desenvolvedor Apaixonado por Criar Soluções Digitais</h3>
+                    <p>Sou Orlando Chefito, um desenvolvedor full-stack dedicado, baseado em Matola-Machava-Km15, com experiência em múltiplas linguagens e frameworks de programação. Adoro transformar problemas complexos em soluções simples, bonitas e intuitivas.</p>
+                    <p>Com uma base sólida em tecnologias front-end e back-end, crio aplicações web perfeitas que proporcionam experiências excepcionais para clientes em Moçambique e além.</p>
                     <div class="about-stats">
-                        <div class="stat-item">
-                            <i class="fas fa-code"></i>
-                            <div class="stat-info">
-                                <span class="stat-number" data-target="3">0</span>
-                                <span class="stat-desc">Tecnologias Dominadas</span>
-                            </div>
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Tecnologias Dominadas</span>
                         </div>
-                        <div class="stat-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <div class="stat-info">
-                                <span class="stat-number" data-target="15">0</span>
-                                <span class="stat-desc">Projetos Concluídos</span>
-                            </div>
+                        <div class="stat">
+                            <span class="stat-number">25</span>
+                            <span class="stat-label">Projectos Concluídos</span>
                         </div>
-                        <div class="stat-item">
-                            <i class="fas fa-users"></i>
-                            <div class="stat-info">
-                                <span class="stat-number" data-target="10">0</span>
-                                <span class="stat-desc">Clientes Satisfeitos</span>
-                            </div>
+                        <div class="stat">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
                         </div>
                     </div>
                 </div>
@@ -135,197 +222,150 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Secção Habilidades -->
     <section id="skills" class="skills">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Competências</span>
-                <h2 class="section-title">Minhas <span class="gradient-text">Habilidades</span></h2>
-                <div class="section-divider"></div>
-            </div>
+            <h2 class="section-title">Minhas Habilidades</h2>
             <div class="skills-grid">
-                <div class="skill-card" data-skill="95">
+                <div class="skill-card">
                     <i class="fab fa-html5 skill-icon"></i>
                     <h3>HTML5</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 95%"></div>
                     </div>
-                    <span class="skill-percent">95%</span>
                 </div>
-                <div class="skill-card" data-skill="90">
+                <div class="skill-card">
                     <i class="fab fa-css3-alt skill-icon"></i>
                     <h3>CSS3</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 90%"></div>
                     </div>
-                    <span class="skill-percent">90%</span>
                 </div>
-                <div class="skill-card" data-skill="88">
+                <div class="skill-card">
                     <i class="fab fa-js skill-icon"></i>
                     <h3>JavaScript</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 88%"></div>
                     </div>
-                    <span class="skill-percent">88%</span>
                 </div>
-                <div class="skill-card" data-skill="85">
-                    <i class="fab fa-node-js skill-icon"></i>
+                <div class="skill-card">
+                    <i class="fab fa-node skill-icon"></i>
                     <h3>Node.js</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 85%"></div>
                     </div>
-                    <span class="skill-percent">85%</span>
                 </div>
-                <div class="skill-card" data-skill="80">
+                <div class="skill-card">
                     <i class="fab fa-java skill-icon"></i>
                     <h3>Java</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 80%"></div>
                     </div>
-                    <span class="skill-percent">80%</span>
                 </div>
-                <div class="skill-card" data-skill="82">
+                <div class="skill-card">
                     <i class="fab fa-php skill-icon"></i>
                     <h3>PHP</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 82%"></div>
                     </div>
-                    <span class="skill-percent">82%</span>
                 </div>
-                <div class="skill-card" data-skill="85">
+                <div class="skill-card">
                     <i class="fas fa-database skill-icon"></i>
-                    <h3>SQL / MySQL</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <h3>MySQL</h3>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 85%"></div>
                     </div>
-                    <span class="skill-percent">85%</span>
                 </div>
-                <div class="skill-card" data-skill="75">
-                    <i class="fas fa-layer-group skill-icon"></i>
+                <div class="skill-card">
+                    <i class="fab fa-react skill-icon"></i>
                     <h3>React.js</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress"></div>
+                    <div class="skill-level">
+                        <div class="skill-progress" style="width: 78%"></div>
                     </div>
-                    <span class="skill-percent">75%</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Secção Projectos -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Portfólio</span>
-                <h2 class="section-title">Projetos em <span class="gradient-text">Destaque</span></h2>
-                <div class="section-divider"></div>
-            </div>
+            <h2 class="section-title">Projectos em Destaque</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-commerce Platform">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Projecto E-commerce">
                     <div class="project-info">
                         <h3>Plataforma E-Commerce</h3>
-                        <p>Solução completa de e-commerce com Node.js, React e MySQL. Inclui carrinho de compras, pagamentos integrados e painel administrativo.</p>
+                        <p>Solução completa de e-commerce com Node.js e React para um negócio local</p>
                         <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JS</span>
                             <span>Node.js</span>
-                            <span>React</span>
-                            <span>MySQL</span>
-                            <span>REST API</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Analytics Dashboard">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Painel Analytics">
                     <div class="project-info">
-                        <h3>Dashboard Analytics</h3>
-                        <p>Dashboard interativo com visualização de dados em tempo real, gráficos dinâmicos e relatórios personalizados para tomada de decisão.</p>
+                        <h3>Painel Analytics</h3>
+                        <p>Dashboard interativo com visualização de dados em tempo real para uma empresa financeira</p>
                         <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JS</span>
                             <span>Java</span>
-                            <span>JavaScript</span>
-                            <span>Chart.js</span>
-                            <span>MySQL</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Task Manager App">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="App Mobile">
                     <div class="project-info">
-                        <h3>TaskFlow Manager</h3>
-                        <p>Aplicação de gestão de tarefas com autenticação JWT, sincronização em tempo real e notificações push para equipes ágeis.</p>
+                        <h3>App de Gestão de Tarefas</h3>
+                        <p>Aplicação mobile-first para gestão de tarefas com sincronização em tempo real</p>
                         <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JS</span>
                             <span>Node.js</span>
-                            <span>Express</span>
-                            <span>MongoDB</span>
-                            <span>Socket.io</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Delivery App">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="App Delivery">
+                    <div class="project-info">
+                        <h3>App de Delivery</h3>
+                        <p>Aplicação de entrega de comida com rastreamento em tempo real para restaurantes em Maputo</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JS</span>
+                            <span>Node.js</span>
                         </div>
                     </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Website Portfólio">
                     <div class="project-info">
-                        <h3>Food Delivery App</h3>
-                        <p>Plataforma de delivery com rastreamento em tempo real, geolocalização e sistema de avaliação para restaurantes parceiros.</p>
+                        <h3>Website Portfólio</h3>
+                        <p>Portfólio moderno com animações e design responsivo para um artista local</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sistema CRM">
+                    <div class="project-info">
+                        <h3>Sistema CRM</h3>
+                        <p>Sistema de gestão de relacionamento com clientes com relatórios avançados e automação</p>
                         <div class="project-tech">
                             <span>PHP</span>
                             <span>MySQL</span>
-                            <span>JavaScript</span>
-                            <span>Google Maps API</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Portfolio Website">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfólio Interativo</h3>
-                        <p>Website portfólio com animações fluidas, design responsivo e otimização SEO para máxima performance e experiência do usuário.</p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>GSAP</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="CRM System">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Sistema CRM</h3>
-                        <p>Sistema de gestão de relacionamento com clientes com relatórios avançados, automação de marketing e integração com e-mail.</p>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>Spring Boot</span>
-                            <span>MySQL</span>
-                            <span>Thymeleaf</span>
+                            <span>JS</span>
+                            <span>Bootstrap</span>
                         </div>
                     </div>
                 </div>
@@ -333,93 +373,57 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Secção Contacto -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Vamos Conversar</span>
-                <h2 class="section-title">Entre em <span class="gradient-text">Contato</span></h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="contact-wrapper">
+            <h2 class="section-title">Entre em Contacto</h2>
+            <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <h3>Telefone / WhatsApp</h3>
-                        <p class="clickable-phone" data-phone="844359397">+258 84 435 9397</p>
-                        <p class="clickable-phone" data-phone="834775470">+258 83 477 5470</p>
+                        <i class="fas fa-phone"></i>
+                        <h3>Telefone</h3>
+                        <p class="clickable-phone" data-phone="844359397">844 359 397</p>
+                        <p class="clickable-phone" data-phone="834775470">834 775 470</p>
                     </div>
                     <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>E-mail</h3>
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
                         <p class="clickable-email">orlandochefito@gmail.com</p>
                     </div>
                     <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <i class="fas fa-map-marker-alt"></i>
                         <h3>Localização</h3>
                         <p class="clickable-location">Matola-Machava-Km15</p>
                         <p>Maputo, Moçambique</p>
                     </div>
-                    <div class="contact-social">
-                        <h3>Redes Sociais</h3>
-                        <div class="social-links">
-                            <a href="https://wa.me/258844359397" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="https://instagram.com/orlandochefito" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://github.com/orlandochefito" target="_blank" rel="noopener noreferrer" class="social-icon github">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/orlandochefito" target="_blank" rel="noopener noreferrer" class="social-icon linkedin">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
-                        <i class="fas fa-user form-icon"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-                        <i class="fas fa-envelope form-icon"></i>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Assunto da mensagem">
-                        <i class="fas fa-tag form-icon"></i>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Sua mensagem..." rows="5" required></textarea>
-                        <i class="fas fa-pencil-alt form-icon"></i>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
-                    </button>
+                    <input type="text" id="name" placeholder="Seu Nome" required>
+                    <input type="email" id="email" placeholder="Seu Email" required>
+                    <input type="text" id="subject" placeholder="Assunto">
+                    <textarea id="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                     <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Rodapé - Links sociais abrem em nova aba -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-text">OC</span>
-                    <span class="logo-dot">.</span>
-                </div>
-                <p class="footer-text">&copy; <span id="currentYear"></span> Orlando Chefito. Todos os direitos reservados.</p>
-                <p class="footer-tagline">Transformando ideias em código desde Matola-Machava-Km15</p>
+            <p>&copy; 2024 Orlando Chefito. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <!-- Links sociais com target="_blank" para abrir em nova aba -->
+                <a href="https://wa.me/258844359397" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/orlandochefito" target="_blank" rel="noopener noreferrer" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/orlandochefito" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </footer>
