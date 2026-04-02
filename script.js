@@ -6,20 +6,22 @@ if (hamburger) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
 }
 
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-menu a').forEach(link => {
+// Close menu when clicking links
+document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        hamburger?.classList.remove('active');
+        navMenu?.classList.remove('active');
+        document.body.style.overflow = '';
     });
 });
 
-// Smooth scrolling for navigation links (âncoras internas - mesma aba)
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -31,115 +33,73 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+        navbar.style.backdropFilter = 'blur(12px)';
     } else {
-        navbar.style.background = '#ffffff';
-        navbar.style.backdropFilter = 'none';
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        navbar.style.backdropFilter = 'blur(12px)';
     }
-});
-
-// Contact form submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Validate form
-        if (!name || !email || !message) {
-            alert('Por favor, preencha todos os campos obrigatórios');
-            return;
+    
+    // Active link highlighting
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
         }
-        
-        // Here you would typically send the data to a server
-        console.log('Formulário enviado:', { name, email, subject, message });
-        
-        // Show success message
-        alert('Obrigado pela sua mensagem! Entrarei em contacto em breve.');
-        contactForm.reset();
     });
-}
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
 
 // Animate skill bars on scroll
 const skillCards = document.querySelectorAll('.skill-card');
+let skillsAnimated = false;
 
 const animateSkills = () => {
+    if (skillsAnimated) return;
+    
     skillCards.forEach(card => {
-        const cardPosition = card.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (cardPosition < screenPosition) {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            const percent = card.querySelector('.skill-percent').textContent;
             const progressBar = card.querySelector('.skill-progress');
-            if (progressBar && !card.classList.contains('animated')) {
-                const width = progressBar.style.width;
-                progressBar.style.width = '0%';
-                setTimeout(() => {
-                    progressBar.style.width = width;
-                }, 100);
-                card.classList.add('animated');
+            if (progressBar) {
+                progressBar.style.width = percent;
             }
         }
     });
+    skillsAnimated = true;
 };
 
 window.addEventListener('scroll', animateSkills);
 window.addEventListener('load', animateSkills);
 
-// Typing effect for hero subtitle
-const heroSubtitle = document.querySelector('.hero-subtitle');
-if (heroSubtitle) {
-    const text = heroSubtitle.textContent;
-    heroSubtitle.textContent = '';
-    
-    let i = 0;
-    const typeWriter = () => {
-        if (i < text.length) {
-            heroSubtitle.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    };
-    
-    // Start typing effect after page load
-    setTimeout(typeWriter, 500);
-}
-
-// Project cards hover effect
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
-});
-
-// Counter animation for stats
+// Animate stats counter
 const statNumbers = document.querySelectorAll('.stat-number');
+let counted = false;
 
 const animateStats = () => {
+    if (counted) return;
+    
     statNumbers.forEach(stat => {
-        const statPosition = stat.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (statPosition < screenPosition && !stat.classList.contains('counted')) {
-            const target = parseInt(stat.textContent);
+        const rect = stat.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            const target = parseInt(stat.getAttribute('data-target'));
             let count = 0;
-            const duration = 2000; // 2 seconds
-            const increment = target / (duration / 16); // 60fps
+            const duration = 2000;
+            const increment = target / (duration / 16);
             
             const updateCount = () => {
                 if (count < target) {
@@ -148,148 +108,176 @@ const animateStats = () => {
                     requestAnimationFrame(updateCount);
                 } else {
                     stat.textContent = target;
-                    stat.classList.add('counted');
                 }
             };
-            
             updateCount();
         }
     });
+    counted = true;
 };
 
 window.addEventListener('scroll', animateStats);
 window.addEventListener('load', animateStats);
 
-// Add active class to navigation links based on scroll position
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-menu a');
+// ============================================
+// EMAILJS CONFIGURAÇÃO - CONFIGURADO COM SUAS CREDENCIAIS
+// ============================================
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+// Suas credenciais do EmailJS
+const EMAILJS_PUBLIC_KEY = "YLbBx8DNU2grP2sdR";
+const EMAILJS_SERVICE_ID = "service_s18xec4";
+const EMAILJS_TEMPLATE_ID = "template_m4fhkxb";
+
+// Inicializar EmailJS com sua Public Key
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// Contact Form Handler
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+const submitBtn = document.getElementById('submitBtn');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
-        if (window.scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Validate form
+        if (!name || !email || !message) {
+            showMessage('Por favor, preencha todos os campos obrigatórios.', 'error');
+            return;
+        }
+        
+        if (!isValidEmail(email)) {
+            showMessage('Por favor, insira um e-mail válido.', 'error');
+            return;
+        }
+        
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando mensagem...';
+        
+        // Prepare template parameters
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject || 'Contato via Portfólio',
+            message: message,
+            to_email: 'orlandochefito@gmail.com',
+            reply_to: email
+        };
+        
+        try {
+            // Send email using EmailJS
+            const response = await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                templateParams
+            );
+            
+            console.log('Email enviado com sucesso!', response);
+            showMessage('✅ Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
+            contactForm.reset();
+            
+        } catch (error) {
+            console.error('Erro ao enviar email:', error);
+            showMessage('❌ Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato diretamente por email: orlandochefito@gmail.com', 'error');
+        } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+            
+            // Auto-hide success message after 5 seconds
+            setTimeout(() => {
+                if (formMessage.classList.contains('success')) {
+                    formMessage.style.display = 'none';
+                    formMessage.className = 'form-message';
+                }
+            }, 5000);
         }
     });
+}
+
+// Email validation helper
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Show message helper
+function showMessage(msg, type) {
+    formMessage.textContent = msg;
+    formMessage.className = `form-message ${type}`;
+    formMessage.style.display = 'block';
     
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Parallax effect for hero section
-const hero = document.querySelector('.hero');
-if (hero) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
-    });
+    // Auto-hide messages after 5 seconds
+    setTimeout(() => {
+        formMessage.style.display = 'none';
+        formMessage.className = 'form-message';
+    }, 5000);
 }
 
-// Dynamic year in footer
-const yearElement = document.querySelector('.footer p');
-if (yearElement) {
-    const currentYear = new Date().getFullYear();
-    yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
-}
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
-
-// Handle email click (abre cliente de email - mesma aba)
-const emailElement = document.querySelector('.clickable-email');
-if (emailElement) {
-    emailElement.addEventListener('click', () => {
-        window.location.href = 'mailto:orlandochefito@gmail.com?subject=Contacto%20do%20Portfólio';
-    });
-}
-
-// Handle phone clicks with Moçambique code (+258) - abre WhatsApp em nova aba
+// Handle phone clicks (WhatsApp)
 const phoneElements = document.querySelectorAll('.clickable-phone');
 phoneElements.forEach(phone => {
     phone.addEventListener('click', () => {
-        // Get the phone number from data attribute or clean the text
-        const phoneNumber = phone.dataset.phone || phone.textContent.replace(/\s/g, '');
-        // Add Moçambique country code (+258) e abre em nova aba
-        window.open(`https://wa.me/258${phoneNumber}`, '_blank', 'noopener noreferrer');
+        const phoneNumber = phone.getAttribute('data-phone') || phone.textContent.replace(/\D/g, '');
+        const cleanNumber = phoneNumber.replace(/\D/g, '');
+        window.open(`https://wa.me/258${cleanNumber}`, '_blank', 'noopener,noreferrer');
     });
 });
 
-// Handle location click - abre Google Maps em nova aba
+// Handle email click
+const emailElement = document.querySelector('.clickable-email');
+if (emailElement) {
+    emailElement.addEventListener('click', () => {
+        window.location.href = 'mailto:orlandochefito@gmail.com?subject=Contato%20via%20Portfólio';
+    });
+}
+
+// Handle location click
 const locationElement = document.querySelector('.clickable-location');
 if (locationElement) {
     locationElement.addEventListener('click', () => {
-        window.open('https://www.google.com/maps/search/Matola-Machava-Km15,Maputo,Mozambique', '_blank', 'noopener noreferrer');
+        window.open('https://www.google.com/maps/search/Matola-Machava-Km15,Maputo,Mozambique', '_blank', 'noopener,noreferrer');
     });
 }
 
-// Form validation
-const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
-formInputs.forEach(input => {
-    input.addEventListener('blur', () => {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            input.classList.add('error');
-        } else {
-            input.classList.remove('error');
-        }
-    });
-    
-    input.addEventListener('input', () => {
-        if (input.classList.contains('error')) {
-            input.classList.remove('error');
-        }
-    });
+// Set current year in footer
+const yearElement = document.getElementById('currentYear');
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
+// Parallax effect for hero
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const heroImage = document.querySelector('.hero-image-wrapper');
+    if (heroImage) {
+        heroImage.style.transform = `translateY(${scrolled * 0.1}px)`;
+    }
 });
 
-// Social media link tracking (já abrem em nova aba por causa do target="_blank" no HTML)
-const whatsappLink = document.querySelector('a[title="WhatsApp"]');
-const instagramLink = document.querySelector('a[title="Instagram"]');
-const githubLink = document.querySelector('a[title="GitHub"]');
+// Add loading animation
+window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+    document.body.style.transition = 'opacity 0.5s';
+});
 
-if (whatsappLink) {
-    whatsappLink.addEventListener('click', (e) => {
-        console.log('Link do WhatsApp clicado - abrindo em nova aba com código +258');
-        // Não precisa prevenir padrão, queremos que abra mesmo
+// Form input focus effects
+const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+formInputs.forEach(input => {
+    input.addEventListener('focus', () => {
+        input.parentElement.classList.add('focused');
     });
-}
-
-if (instagramLink) {
-    instagramLink.addEventListener('click', (e) => {
-        console.log('Link do Instagram clicado - abrindo em nova aba');
-    });
-}
-
-if (githubLink) {
-    githubLink.addEventListener('click', (e) => {
-        console.log('Link do GitHub clicado - abrindo em nova aba');
-    });
-}
-
-// Garantir que links sociais realmente abram em nova aba (redundância de segurança)
-document.querySelectorAll('.social-links a').forEach(link => {
-    // Garantir que todos os links sociais tenham target="_blank" e rel="noopener noreferrer"
-    if (!link.getAttribute('target')) {
-        link.setAttribute('target', '_blank');
-    }
-    if (!link.getAttribute('rel')) {
-        link.setAttribute('rel', 'noopener noreferrer');
-    }
     
-    // Verificar se o link não está vazio
-    const href = link.getAttribute('href');
-    if (href === '#' || href === '') {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Link será atualizado com o seu perfil social em breve!');
-        });
-    }
+    input.addEventListener('blur', () => {
+        if (!input.value) {
+            input.parentElement.classList.remove('focused');
+        }
+    });
 });
