@@ -6,18 +6,20 @@ if (hamburger) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
 }
 
 // Close mobile menu when clicking a link
-document.querySelectorAll('.nav-menu a').forEach(link => {
+document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        hamburger?.classList.remove('active');
+        navMenu?.classList.remove('active');
+        document.body.style.overflow = '';
     });
 });
 
-// Smooth scrolling for navigation links (âncoras internas - mesma aba)
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -31,27 +33,46 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.background = 'rgba(2, 6, 23, 0.98)';
+        navbar.style.backdropFilter = 'blur(12px)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+        navbar.style.backdropFilter = 'blur(12px)';
     }
+    
+    // Active link highlighting
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
 });
 
 // Animate skill bars on scroll
 const skillCards = document.querySelectorAll('.skill-card');
+let skillsAnimated = false;
 
 const animateSkills = () => {
+    if (skillsAnimated) return;
+    
     skillCards.forEach(card => {
-        const cardPosition = card.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (cardPosition < screenPosition) {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
             const progressBar = card.querySelector('.skill-progress');
             if (progressBar && !card.classList.contains('animated')) {
                 const width = progressBar.style.width;
@@ -63,6 +84,7 @@ const animateSkills = () => {
             }
         }
     });
+    skillsAnimated = true;
 };
 
 window.addEventListener('scroll', animateSkills);
@@ -79,36 +101,23 @@ if (heroSubtitle) {
         if (i < text.length) {
             heroSubtitle.textContent += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, 80);
         }
     };
     
-    // Start typing effect after page load
     setTimeout(typeWriter, 500);
 }
 
-// Project cards hover effect
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
-});
-
 // Counter animation for stats
 const statNumbers = document.querySelectorAll('.stat-number');
+let counted = false;
 
 const animateStats = () => {
+    if (counted) return;
+    
     statNumbers.forEach(stat => {
-        const statPosition = stat.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (statPosition < screenPosition && !stat.classList.contains('counted')) {
+        const rect = stat.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
             const target = parseInt(stat.textContent);
             let count = 0;
             const duration = 2000;
@@ -121,41 +130,16 @@ const animateStats = () => {
                     requestAnimationFrame(updateCount);
                 } else {
                     stat.textContent = target;
-                    stat.classList.add('counted');
                 }
             };
-            
             updateCount();
         }
     });
+    counted = true;
 };
 
 window.addEventListener('scroll', animateStats);
 window.addEventListener('load', animateStats);
-
-// Add active class to navigation links based on scroll position
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-menu a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
 
 // Parallax effect for hero section
 const hero = document.querySelector('.hero');
@@ -167,98 +151,67 @@ if (hero) {
 }
 
 // Dynamic year in footer
-const yearElement = document.querySelector('.footer p');
+const yearElement = document.getElementById('currentYear');
 if (yearElement) {
-    const currentYear = new Date().getFullYear();
-    yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
+    yearElement.textContent = new Date().getFullYear();
 }
 
 // Add loading animation
 window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+    document.body.style.transition = 'opacity 0.5s';
     document.body.classList.add('loaded');
 });
 
-// Handle email click (abre cliente de email - mesma aba)
+// Handle email click
 const emailElement = document.querySelector('.clickable-email');
 if (emailElement) {
     emailElement.addEventListener('click', () => {
-        window.location.href = 'mailto:orlandochefito@gmail.com?subject=Contacto%20do%20Portfólio';
+        window.location.href = 'mailto:orlandochefito@gmail.com?subject=Contato%20via%20Portfólio';
     });
 }
 
-// Handle phone clicks with Moçambique code (+258) - abre WhatsApp em nova aba
+// Handle phone clicks (WhatsApp)
 const phoneElements = document.querySelectorAll('.clickable-phone');
 phoneElements.forEach(phone => {
     phone.addEventListener('click', () => {
-        const phoneNumber = phone.dataset.phone || phone.textContent.replace(/\s/g, '');
-        window.open(`https://wa.me/258${phoneNumber}`, '_blank', 'noopener noreferrer');
+        const phoneNumber = phone.getAttribute('data-phone') || phone.textContent.replace(/\D/g, '');
+        const cleanNumber = phoneNumber.replace(/\D/g, '');
+        window.open(`https://wa.me/258${cleanNumber}`, '_blank', 'noopener,noreferrer');
     });
 });
 
-// Handle location click - abre Google Maps em nova aba
+// Handle location click
 const locationElement = document.querySelector('.clickable-location');
 if (locationElement) {
     locationElement.addEventListener('click', () => {
-        window.open('https://www.google.com/maps/search/Matola-Machava-Km15,Maputo,Mozambique', '_blank', 'noopener noreferrer');
+        window.open('https://www.google.com/maps/search/Matola-Machava-Km15,Maputo,Mozambique', '_blank', 'noopener,noreferrer');
     });
 }
 
 // Form validation
-const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+const formInputs = document.querySelectorAll('.input-group input, .input-group textarea');
 formInputs.forEach(input => {
     input.addEventListener('blur', () => {
         if (input.hasAttribute('required') && !input.value.trim()) {
-            input.classList.add('error');
+            input.style.borderColor = '#ef4444';
         } else {
-            input.classList.remove('error');
+            input.style.borderColor = 'rgba(16, 185, 129, 0.2)';
         }
     });
     
     input.addEventListener('input', () => {
-        if (input.classList.contains('error')) {
-            input.classList.remove('error');
-        }
+        input.style.borderColor = 'rgba(16, 185, 129, 0.2)';
     });
 });
 
-// Social media link tracking
-const whatsappLink = document.querySelector('a[title="WhatsApp"]');
-const instagramLink = document.querySelector('a[title="Instagram"]');
-const githubLink = document.querySelector('a[title="GitHub"]');
-
-if (whatsappLink) {
-    whatsappLink.addEventListener('click', (e) => {
-        console.log('Link do WhatsApp clicado - abrindo em nova aba com código +258');
-    });
-}
-
-if (instagramLink) {
-    instagramLink.addEventListener('click', (e) => {
-        console.log('Link do Instagram clicado - abrindo em nova aba');
-    });
-}
-
-if (githubLink) {
-    githubLink.addEventListener('click', (e) => {
-        console.log('Link do GitHub clicado - abrindo em nova aba');
-    });
-}
-
-// Garantir que links sociais realmente abram em nova aba
-document.querySelectorAll('.social-links a').forEach(link => {
+// Social links - garantir que abram em nova aba
+document.querySelectorAll('.social-icon').forEach(link => {
     if (!link.getAttribute('target')) {
         link.setAttribute('target', '_blank');
     }
     if (!link.getAttribute('rel')) {
         link.setAttribute('rel', 'noopener noreferrer');
-    }
-    
-    const href = link.getAttribute('href');
-    if (href === '#' || href === '') {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Link será atualizado com o seu perfil social em breve!');
-        });
     }
 });
 
@@ -266,19 +219,15 @@ document.querySelectorAll('.social-links a').forEach(link => {
 // EMAILJS CONFIGURAÇÃO - ENVIO DE E-MAIL
 // ============================================
 
-// Inicializar EmailJS com sua Public Key
 emailjs.init("YLbBx8DNU2grP2sdR");
 
-// Configurações do EmailJS
 const EMAILJS_SERVICE_ID = "service_s18xec4";
 const EMAILJS_TEMPLATE_ID = "template_m4fhkxb";
 
-// Pegar elementos do formulário
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 const submitBtn = document.querySelector('#contactForm button[type="submit"]');
 
-// Função para mostrar mensagem
 function showMessage(msg, type) {
     formMessage.textContent = msg;
     formMessage.className = `form-message ${type}`;
@@ -289,13 +238,11 @@ function showMessage(msg, type) {
     }, 5000);
 }
 
-// Função para validar email
 function isValidEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
 
-// Evento de envio do formulário
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -338,7 +285,7 @@ if (contactForm) {
             })
             .finally(function() {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Enviar Mensagem';
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
             });
     });
 }
