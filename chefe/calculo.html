@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chefito Cálculo de Notas Sytems</title>
+ 
+ <link rel="stylesheet" href="cccc.css">
+</head>
+<body>
+  
+  <div class="container">
+    <div class="card">
+      <h1>Chefito Cálculo de Notas Sytems</h1>
+      <p class="lead">Adicione atividades ( Prova, Trabalho, Trabalho de casa), atribua peso (%) e nota. O sistema calcula a média ponderada, exibe conceito e indica se está aprovado.</p>
+
+      <div class="flex">
+        <div style="flex:1">
+          <label class="small">Nome do curso / disciplina</label>
+          <input id="curso" type="text" placeholder="Ex: Matemática" />
+        </div>
+        <div style="width:180px">
+          <label class="small">Nota mínima para aprovação</label>
+          <input id="minimoAprovacao" type="number" min="0" max="100" value="60" />
+        </div>
+      </div>
+
+      <table id="tabelaNotas" aria-label="Tabela de notas">
+        <thead>
+          <tr>
+            <th style="width:38%">Atividade</th>
+            <th style="width:20%">Peso (%)</th>
+            <th style="width:20%">Nota (0-100)</th>
+            <th style="width:22%">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabela">
+          <!-- Chefito:linhas serão inseridas aqui -->
+        </tbody>
+      </table>
+
+      <div class="controls">
+        <button id="btnAdd">➕ Adicionar atividade</button>
+        <button id="btnCalcular">✅ Calcular média</button>
+        <button id="btnSalvar" class="ghost">💾 Salvar local</button>
+        <button id="btnExportar" class="ghost">📤 Exportar CSV</button>
+        <button id="btnReset" class="danger">🔁 Limpar</button>
+      </div>
+
+      <div id="resultado" class="result" style="display:none">
+        <strong id="textoResultado"></strong>
+        <div id="detalhes" style="margin-top:8px" class="small"></div>
+      </div>
+
+      <p class="small" style="margin-top:12px"><strong><b class="prato">Dica do Chefito</b></strong>: os pesos não precisam somar 100% — o sistema normaliza automaticamente. Todos os campos numéricos aceitam decimais.</p>
+    </div>
+  </div>
+<script src="cccc.js"></script>
+  
+</body>
+</html>

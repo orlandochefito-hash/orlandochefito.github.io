@@ -1,0 +1,29 @@
+:root{--accent:#25caeb;--muted:#00000084;--card:#efe3e3;--bg:#f3f4f6}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#111}
+    .container{max-width:900px;margin:32px auto;padding:20px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    h1{margin:0 0 8px;font-size:20px}
+    p.lead{margin:0 0 16px;color:var(--muted)}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:8px 6px;text-align:left}
+    th{font-size:13px;color:var(--muted)}
+    input[type="text"],input[type="number"],select{width:100%;padding:8px;border-radius:6px;border:1px solid #baccf1;font-size:14px}
+    .controls{display:flex;gap:8px;margin-top:12px}
+    button{background:var(--accent);color:#fff;border:0;padding:10px 12px;border-radius:8px;cursor:pointer}
+    button.ghost{background:transparent;color:var(--accent);border:1px solid #d0def0}
+    button.danger{background:#ef4444}
+    .row-actions{display:flex;gap:6px}
+    .result{margin-top:16px;padding:12px;border-radius:8px;background:#eef2ff}
+    .small{font-size:13px;color:var(--muted)}
+    .flex{display:flex;gap:20px;align-items:center}
+    @media (max-width:640px){.controls{flex-direction:column}.flex{flex-direction:column;align-items:flex-start}}
+    .card:hover{
+      color:#25caeb;
+      
+    }
+    .prato{
+      color:#25caeb;
+    }
+    .row-actions{
+      margin: 3%;
+    }
