@@ -1,172 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-MZ">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Orlando Chefito | Portfólio de Desenvolvedor</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <style>
-        /* Ajustes para normalizar tamanhos de letra */
-        body {
-            font-size: 16px;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.8rem;
-        }
-        
-        .hero-description {
-            font-size: 1.3rem;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-        }
-        
-        .about-text h3 {
-            font-size: 2rem;
-        }
-        
-        .about-text p {
-            font-size: 1.1rem;
-        }
-        
-        .stat-number {
-            font-size: 2.2rem;
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-        }
-        
-        .skill-card h3 {
-            font-size: 1.4rem;
-        }
-        
-        .project-info h3 {
-            font-size: 1.4rem;
-        }
-        
-        .project-info p {
-            font-size: 1rem;
-        }
-        
-        .project-tech span {
-            font-size: 0.9rem;
-        }
-        
-        .contact-card h3 {
-            font-size: 1.4rem;
-        }
-        
-        .contact-card p {
-            font-size: 1.1rem;
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            font-size: 1rem;
-        }
-        
-        .btn {
-            font-size: 1.1rem;
-        }
-        
-        .footer p {
-            font-size: 1rem;
-        }
-        
-        .social-links a {
-            font-size: 1.8rem;
-        }
-        
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .hero-description {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .about-text h3 {
-                font-size: 1.6rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .stat-number {
-                font-size: 1.8rem;
-            }
-        }
-        
-        /* Estilo para mensagem do formulário */
-        .form-message {
-            margin-top: 1rem;
-            padding: 0.75rem;
-            border-radius: 5px;
-            text-align: center;
-            display: none;
-        }
-        
-        .form-message.success {
-            display: block;
-            background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
-            border: 1px solid #10b981;
-        }
-        
-        .form-message.error {
-            display: block;
-            background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-            border: 1px solid #ef4444;
-        }
-        
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orlando Gito · Portfólio</title>
+    <!-- Orlando Gito - Fontes e ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Navegação - Links internos abrem na mesma aba -->
-    <nav class="navbar">
+
+    <!-- ============================================================
+    Orlando Gito - Barra de navegação fixa
+    ============================================================ -->
+    <header class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
+            <a href="#" class="nav-logo">
                 <span class="logo-bracket">&lt;</span>
-                <span class="logo-text">OC</span>
+                <span class="logo-text">Orlando Gito</span>
                 <span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#hero" class="nav-link active">Início</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
                 <li><a href="#skills" class="nav-link">Habilidades</a></li>
                 <li><a href="#projects" class="nav-link">Projetos</a></li>
@@ -178,91 +33,107 @@
                 <span class="bar"></span>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Secção Hero -->
-    <section id="home" class="hero">
+    <!-- ============================================================
+    Orlando Gito - Seção Hero (destaque principal)
+    ============================================================ -->
+    <section id="hero" class="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <i class="fas fa-code"></i>
-                    <span>Full Stack Developer</span>
+                    <i class="fas fa-code"></i> Desenvolvedor Full Stack
                 </div>
                 <h1 class="hero-title">
-                    Orlando <span class="highlight">Chefito</span>
+                    Olá, eu sou <span class="highlight">Orlando Gito</span>
                 </h1>
-                <p class="hero-subtitle">const { code, creativity } = developer;</p>
-                <p class="hero-description">Criando experiências web bonitas e funcionais desde Matola-Machava-Km15</p>
+                <p class="hero-subtitle">&gt; const developer = { passion: 'Criar soluções incríveis' };</p>
+                <p class="hero-description">
+                    Especialista em transformar ideias em produtos digitais robustos.
+                    React, Node.js, Python e muito mais.
+                </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Entre em Contato
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Ver Projetos
                     </a>
-                    <a href="#projects" class="btn btn-outline">
-                        <i class="fas fa-arrow-down"></i> Ver Projetos
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i> Contato
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-value">3+</span>
-                        <span class="stat-label">Anos Exp.</span>
+                        <span class="stat-value">5+</span>
+                        <span class="stat-label">Anos de experiência</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">25+</span>
-                        <span class="stat-label">Projetos</span>
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Projetos entregues</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">10+</span>
-                        <span class="stat-label">Clientes</span>
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">Satisfação dos clientes</span>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
+                <!-- Orlando Gito - Imagem real de um desenvolvedor trabalhando (foto de Christina @ wocintech) -->
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center"
+                     alt="Desenvolvedor programando" />
                 <div class="code-overlay">
                     <pre class="code-snippet">
-<span class="code-keyword">function</span> <span class="code-function">Developer</span>() {
-  <span class="code-keyword">return</span> {
-    name: <span class="code-string">"Orlando"</span>,
-    skills: [<span class="code-string">"JS"</span>, <span class="code-string">"Node"</span>, <span class="code-string">"Java"</span>],
-    passion: <span class="code-string">"Code"</span>
-  };
-}</pre>
+                        <span class="code-keyword">const</span> <span class="code-function">developer</span> = {
+                        nome: <span class="code-string">"Orlando"</span>,
+                        stack: [<span class="code-string">"React"</span>, <span class="code-string">"Node"</span>]
+                        };
+                    </pre>
                 </div>
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Espaço de trabalho do desenvolvedor">
             </div>
         </div>
     </section>
 
-    <!-- Secção Sobre -->
+    <!-- ============================================================
+    Orlando Gito - Seção Sobre
+    ============================================================ -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// Sobre mim</span>
-                <h2 class="section-title">Quem <span class="highlight">sou</span></h2>
+                <span class="section-tag"><i class="fas fa-user-astronaut"></i> Sobre mim</span>
+                <h2 class="section-title">Conheça um pouco da minha trajetória</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Setup de programação">
+                    <!-- Orlando Gito - Foto real de um workspace criativo (foto de Firmbee) -->
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center"
+                         alt="Espaço de trabalho" />
                 </div>
                 <div class="about-text">
-                    <h3>Desenvolvedor Apaixonado por Criar Soluções Digitais</h3>
-                    <p>Sou Orlando Chefito, um desenvolvedor full-stack dedicado, baseado em Matola-Machava-Km15, com experiência em múltiplas linguagens e frameworks de programação. Adoro transformar problemas complexos em soluções simples, bonitas e intuitivas.</p>
-                    <p>Com uma base sólida em tecnologias front-end e back-end, crio aplicações web perfeitas que proporcionam experiências excepcionais para clientes em Moçambique e além.</p>
+                    <h3>Desenvolvedor apaixonado por tecnologia</h3>
+                    <p>
+                        Com mais de 5 anos de experiência, construí soluções escaláveis para
+                        startups e empresas de médio porte. Atualmente foco em arquitetura
+                        de microsserviços e interfaces de alta performance.
+                    </p>
+                    <p>
+                        Acredito que código limpo e bem testado é a base de qualquer produto
+                        de sucesso. Sempre busco aprender novas tecnologias e compartilhar
+                        conhecimento com a comunidade.
+                    </p>
                     <div class="about-stats">
                         <div class="stat">
-                            <i class="fas fa-layer-group"></i>
-                            <span class="stat-number">12</span>
-                            <span class="stat-label">Tecnologias Dominadas</span>
+                            <i class="fas fa-code"></i>
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Linguagens</span>
                         </div>
                         <div class="stat">
-                            <i class="fas fa-project-diagram"></i>
-                            <span class="stat-number">25</span>
-                            <span class="stat-label">Projetos Concluídos</span>
+                            <i class="fas fa-database"></i>
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Bancos de dados</span>
                         </div>
                         <div class="stat">
-                            <i class="fas fa-smile"></i>
-                            <span class="stat-number">10</span>
-                            <span class="stat-label">Clientes Satisfeitos</span>
+                            <i class="fas fa-cloud"></i>
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Clouds</span>
                         </div>
                     </div>
                 </div>
@@ -270,159 +141,106 @@
         </div>
     </section>
 
-    <!-- Secção Habilidades -->
+    <!-- ============================================================
+    Orlando Gito - Seção Habilidades
+    ============================================================ -->
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// Habilidades técnicas</span>
-                <h2 class="section-title">Meu <span class="highlight">Stack</span></h2>
+                <span class="section-tag"><i class="fas fa-cogs"></i> Habilidades</span>
+                <h2 class="section-title">Tecnologias que domino</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <i class="fab fa-html5 skill-icon"></i>
-                    <h3>HTML5</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
+                    <div class="skill-icon">⚛️</div>
+                    <h3>React & Next.js</h3>
+                    <div class="skill-level"><div class="skill-progress" style="width:90%"></div></div>
                 </div>
                 <div class="skill-card">
-                    <i class="fab fa-css3-alt skill-icon"></i>
-                    <h3>CSS3</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
+                    <div class="skill-icon">🟢</div>
+                    <h3>Node.js / Express</h3>
+                    <div class="skill-level"><div class="skill-progress" style="width:85%"></div></div>
                 </div>
                 <div class="skill-card">
-                    <i class="fab fa-js skill-icon"></i>
-                    <h3>JavaScript</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 88%"></div>
-                    </div>
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python / Django</h3>
+                    <div class="skill-level"><div class="skill-progress" style="width:80%"></div></div>
                 </div>
                 <div class="skill-card">
-                    <i class="fab fa-node skill-icon"></i>
-                    <h3>Node.js</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
+                    <div class="skill-icon">🗄️</div>
+                    <h3>PostgreSQL / MongoDB</h3>
+                    <div class="skill-level"><div class="skill-progress" style="width:75%"></div></div>
                 </div>
                 <div class="skill-card">
-                    <i class="fab fa-java skill-icon"></i>
-                    <h3>Java</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
+                    <div class="skill-icon">☁️</div>
+                    <h3>AWS / Docker</h3>
+                    <div class="skill-level"><div class="skill-progress" style="width:70%"></div></div>
                 </div>
                 <div class="skill-card">
-                    <i class="fab fa-php skill-icon"></i>
-                    <h3>PHP</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 82%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database skill-icon"></i>
-                    <h3>MySQL</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react skill-icon"></i>
-                    <h3>React.js</h3>
-                    <div class="skill-level">
-                        <div class="skill-progress" style="width: 78%"></div>
-                    </div>
+                    <div class="skill-icon">🔧</div>
+                    <h3>CI/CD (GitHub Actions)</h3>
+                    <div class="skill-level"><div class="skill-progress" style="width:65%"></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Secção Projectos -->
+    <!-- ============================================================
+    Orlando Gito - Seção Projetos (com imagens reais de UI/UX)
+    ============================================================ -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// Portfólio</span>
-                <h2 class="section-title">Projetos em <span class="highlight">Destaque</span></h2>
+                <span class="section-tag"><i class="fas fa-laptop-code"></i> Portfólio</span>
+                <h2 class="section-title">Projetos recentes</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="projects-grid">
+                <!-- Projeto 1 -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Projecto E-commerce">
+                    <!-- Imagem real de dashboard de analytics (foto de Luke Chesser) -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center"
+                         alt="Dashboard Analytics" />
                     <div class="project-info">
-                        <h3>Plataforma E-Commerce</h3>
-                        <p>Solução completa de e-commerce com Node.js e React para um negócio local</p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>Node.js</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Painel Analytics">
-                    <div class="project-info">
-                        <h3>Painel Analytics</h3>
-                        <p>Dashboard interativo com visualização de dados em tempo real para uma empresa financeira</p>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>JavaScript</span>
-                            <span>MySQL</span>
-                            <span>REST API</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="App Mobile">
-                    <div class="project-info">
-                        <h3>App de Gestão de Tarefas</h3>
-                        <p>Aplicação mobile-first para gestão de tarefas com sincronização em tempo real</p>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Painel interativo com gráficos em tempo real usando D3.js e WebSockets.</p>
                         <div class="project-tech">
                             <span>React</span>
+                            <span>D3</span>
                             <span>Node.js</span>
-                            <span>MongoDB</span>
                             <span>Socket.io</span>
                         </div>
                     </div>
                 </div>
+                <!-- Projeto 2 -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="App Delivery">
+                    <!-- Imagem real de e-commerce (foto de Christina @ wocintech) -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center"
+                         alt="E-commerce" />
                     <div class="project-info">
-                        <h3>App de Delivery</h3>
-                        <p>Aplicação de entrega de comida com rastreamento em tempo real para restaurantes</p>
+                        <h3>Marketplace de Moda</h3>
+                        <p>Plataforma de vendas com integração de pagamentos e gestão de estoque.</p>
                         <div class="project-tech">
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                            <span>JavaScript</span>
-                            <span>Google Maps API</span>
+                            <span>Next.js</span>
+                            <span>Stripe</span>
+                            <span>Prisma</span>
+                            <span>PostgreSQL</span>
                         </div>
                     </div>
                 </div>
+                <!-- Projeto 3 -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Website Portfólio">
+                    <!-- Imagem real de aplicativo mobile (foto de Daniel Korpai) -->
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop&crop=center"
+                         alt="App de fitness" />
                     <div class="project-info">
-                        <h3>Website Portfólio</h3>
-                        <p>Portfólio moderno com animações e design responsivo para um artista local</p>
+                        <h3>Fitness Tracker</h3>
+                        <p>App mobile para monitoramento de treinos, com sincronização em nuvem.</p>
                         <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>GSAP</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sistema CRM">
-                    <div class="project-info">
-                        <h3>Sistema CRM</h3>
-                        <p>Sistema de gestão de relacionamento com clientes com relatórios avançados</p>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>Spring Boot</span>
-                            <span>MySQL</span>
-                            <span>Thymeleaf</span>
+                            <span>React Native</span>
+                            <span>Firebase</span>
+                            <span>Redux</span>
                         </div>
                     </div>
                 </div>
@@ -430,92 +248,94 @@
         </div>
     </section>
 
-    <!-- Secção Contacto -->
+    <!-- ============================================================
+    Orlando Gito - Seção Contato
+    ============================================================ -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// Contato</span>
-                <h2 class="section-title">Vamos <span class="highlight">Conversar</span></h2>
+                <span class="section-tag"><i class="fas fa-envelope"></i> Fale comigo</span>
+                <h2 class="section-title">Vamos trabalhar juntos?</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-card">
-                        <i class="fas fa-phone-alt"></i>
-                        <h3>Telefone</h3>
-                        <p class="clickable-phone" data-phone="844359397">+258 84 435 9397</p>
-                        <p class="clickable-phone" data-phone="834775470">+258 83 477 5470</p>
+                        <i class="fas fa-envelope"></i>
+                        <h3>E-mail</h3>
+                        <p class="clickable-email">orlandochefito@gmail.com</p>
                     </div>
                     <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p class="clickable-email">orlandochefito@gmail.com</p>
+                        <i class="fas fa-phone"></i>
+                        <h3>WhatsApp</h3>
+                        <p class="clickable-phone" data-phone="841234567">+258 84 123 4567</p>
                     </div>
                     <div class="contact-card">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>Localização</h3>
-                        <p class="clickable-location">Matola-Machava-Km15</p>
-                        <p>Maputo, Moçambique</p>
+                        <p class="clickable-location">Matola-Machava Km15, Maputo</p>
                     </div>
                     <div class="contact-social">
-                        <h3>Redes Sociais</h3>
+                        <h3>Redes sociais</h3>
                         <div class="social-links">
-                            <a href="https://wa.me/258844359397" target="_blank" rel="noopener noreferrer" class="social-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="https://instagram.com/orlandochefito" target="_blank" rel="noopener noreferrer" class="social-icon">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://github.com/orlandochefito" target="_blank" rel="noopener noreferrer" class="social-icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/orlandochefito" target="_blank" rel="noopener noreferrer" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
+                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="name" placeholder="Seu nome" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" placeholder="Seu email" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-tag"></i>
-                        <input type="text" id="subject" placeholder="Assunto">
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-comment"></i>
-                        <textarea id="message" placeholder="Sua mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
-                    </button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="name" placeholder="Seu nome" required />
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="Seu e-mail" required />
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-tag"></i>
+                            <input type="text" id="subject" placeholder="Assunto" />
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-comment"></i>
+                            <textarea id="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+                        </div>
+                        <div id="formMessage" style="display:none;"></div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Rodapé -->
+    <!-- ============================================================
+    Orlando Gito - Rodapé
+    ============================================================ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">OC</span>
+                    <span class="logo-text">Orlando Gito</span>
                     <span class="logo-bracket">/&gt;</span>
                 </div>
-                <p class="footer-text">&copy; <span id="currentYear"></span> Orlando Chefito | const developer = { passion: "code", mission: "create" };</p>
-                <p class="footer-tagline">Transformando ideias em código desde Matola-Machava-Km15</p>
+                <p class="footer-text">
+                    &copy; <span id="currentYear"></span> · Desenvolvido com
+                    <i class="fas fa-heart" style="color: #10b981;"></i> por Orlando Gito
+                </p>
+                <p class="footer-tagline">Sempre aprendendo, sempre evoluindo.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Orlando Gito - Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

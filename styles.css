@@ -1,3 +1,8 @@
+/* ============================================
+   Orlando Gito - Estilos Globais do Portfólio
+   ============================================ */
+
+/* ---------- Reset e Variáveis ---------- */
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +26,7 @@
     --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
     --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
     
-    /* Tamanhos de fonte */
+    /* Orlando Gito - Escala tipográfica própria */
     --font-size-xs: 0.875rem;
     --font-size-sm: 1rem;
     --font-size-base: 1.125rem;
@@ -32,6 +37,7 @@
     --font-size-xxxl: 3.5rem;
 }
 
+/* ---------- Base ---------- */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -53,7 +59,7 @@ body {
     padding: 0 2rem;
 }
 
-/* Navigation */
+/* ---------- Navegação ---------- */
 .navbar {
     position: fixed;
     top: 0;
@@ -81,7 +87,6 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0;
     font-family: monospace;
 }
 
@@ -130,14 +135,12 @@ body {
     width: 100%;
 }
 
-.nav-link:hover {
-    color: var(--primary);
-}
-
+.nav-link:hover,
 .nav-link.active {
     color: var(--primary);
 }
 
+/* Orlando Gito - Menu hambúrguer (mobile) */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -153,7 +156,7 @@ body {
     transition: var(--transition);
 }
 
-/* Hero Section */
+/* ---------- Hero ---------- */
 .hero {
     padding: 140px 0 80px;
     background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
@@ -288,17 +291,9 @@ body {
     margin: 0;
 }
 
-.code-keyword {
-    color: #c084fc;
-}
-
-.code-function {
-    color: var(--primary);
-}
-
-.code-string {
-    color: #fbbf24;
-}
+.code-keyword { color: #c084fc; }
+.code-function { color: var(--primary); }
+.code-string { color: #fbbf24; }
 
 .hero-image img {
     width: 100%;
@@ -308,7 +303,7 @@ body {
     border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-/* Buttons */
+/* ---------- Botões ---------- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -351,7 +346,7 @@ body {
     justify-content: center;
 }
 
-/* Section Styles */
+/* ---------- Seções ---------- */
 section {
     padding: 80px 0;
 }
@@ -388,7 +383,7 @@ section {
     border-radius: 3px;
 }
 
-/* About Section */
+/* ---------- Sobre ---------- */
 .about {
     background: var(--white);
 }
@@ -460,7 +455,7 @@ section {
     color: var(--gray);
 }
 
-/* Skills Section */
+/* ---------- Habilidades ---------- */
 .skills {
     background: var(--light);
 }
@@ -512,7 +507,7 @@ section {
     transition: width 1s ease;
 }
 
-/* Projects Section */
+/* ---------- Projetos ---------- */
 .projects {
     background: var(--white);
 }
@@ -585,7 +580,7 @@ section {
     color: var(--white);
 }
 
-/* Contact Section */
+/* ---------- Contato ---------- */
 .contact {
     background: var(--light);
 }
@@ -733,7 +728,7 @@ section {
     font-family: inherit;
 }
 
-/* Footer */
+/* ---------- Rodapé ---------- */
 .footer {
     background: var(--darker);
     color: var(--light);
@@ -775,7 +770,7 @@ section {
     opacity: 0.6;
 }
 
-/* Animations */
+/* ---------- Animações ---------- */
 @keyframes fadeInLeft {
     from {
         opacity: 0;
@@ -798,7 +793,7 @@ section {
     }
 }
 
-/* Responsive Design */
+/* ---------- Responsividade ---------- */
 @media (max-width: 1024px) {
     .hero-container,
     .about-content,
@@ -806,15 +801,12 @@ section {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
     .hero-image {
         order: -1;
     }
-    
     .hero-description {
         max-width: 100%;
     }
-    
     .code-overlay {
         display: none;
     }
@@ -824,11 +816,11 @@ section {
     .container {
         padding: 0 1.5rem;
     }
-    
+
     .hamburger {
         display: flex;
     }
-    
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -843,67 +835,51 @@ section {
         transition: 0.3s;
         z-index: 999;
     }
-    
+
     .nav-menu.active {
         left: 0;
     }
-    
+
     .hamburger.active .bar:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
-    
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
-    
     .hamburger.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
     }
-    
-    .hero-buttons {
-        justify-content: center;
-    }
-    
+
+    .hero-buttons,
     .hero-stats {
         justify-content: center;
     }
-    
     .hero-title,
     .hero-subtitle,
     .hero-description {
         text-align: center;
     }
-    
     .hero-badge {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .about-stats {
         grid-template-columns: 1fr;
     }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
+    .skills-grid,
+    .projects-grid,
     .contact-container {
         grid-template-columns: 1fr;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
     .btn {
         width: 100%;
         justify-content: center;
     }
-    
     .hero-buttons {
         flex-direction: column;
     }
@@ -913,38 +889,31 @@ section {
     .container {
         padding: 0 1rem;
     }
-    
     .hero-title {
         font-size: 2rem;
     }
-    
     .stat-value {
         font-size: 1.2rem;
     }
-    
     .project-card img {
         height: 180px;
     }
-    
     .contact-form {
         padding: 1.5rem;
     }
 }
 
-/* Scrollbar */
+/* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
     width: 8px;
 }
-
 ::-webkit-scrollbar-track {
     background: var(--light);
 }
-
 ::-webkit-scrollbar-thumb {
     background: var(--primary);
     border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
 }
