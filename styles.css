@@ -22,9 +22,10 @@
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
     --shadow-md: 0 8px 30px rgba(0,0,0,0.06);
     --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
+    --shadow-glow: 0 0 30px rgba(0,0,0,0.04);
     --radius: 16px;
     --radius-sm: 8px;
-    --transition: all 0.3s cubic-bezier(0.2, 0.95, 0.4, 1);
+    --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
     --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -510,22 +511,24 @@ section {
     color: var(--text-muted);
 }
 
-/* ---------- Tecnologias (Skills) ---------- */
+/* ============================================================
+   Orlando Gito - Tecnologias (Skills) - Nível Sênior Premium
+   ============================================================ */
 .skills {
     background: var(--bg-secondary);
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.5rem;
-    max-width: 960px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .skill-item {
     background: var(--bg-card);
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
     border-radius: var(--radius);
     text-align: center;
     border: 1px solid var(--border-color);
@@ -534,32 +537,67 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    position: relative;
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+    box-shadow: var(--shadow-sm);
 }
 
+/* Orlando Gito - Efeito 3D e brilho profissional */
 .skill-item:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
+    transform: perspective(800px) rotateX(2deg) rotateY(4deg) translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), var(--shadow-glow);
     border-color: var(--text-primary);
     background: var(--bg-primary);
 }
 
+/* Orlando Gito - Ícones com glow sutil no hover */
 .skill-item i {
-    font-size: 4rem;
+    font-size: 4.5rem;
     line-height: 1;
     display: block;
+    transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.02));
 }
 
-/* Orlando Gito - Ajuste específico para Node.js (wordmark) */
-.skill-item .devicon-nodejs-plain-wordmark {
-    font-size: 3.8rem;
+.skill-item:hover i {
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+    transform: scale(1.04);
 }
 
-.skill-item span {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+/* Orlando Gito - Nome da tecnologia */
+.skill-item span:first-of-type {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
     letter-spacing: -0.01em;
+    margin-top: 0.25rem;
+}
+
+/* Orlando Gito - Badge de nível (Expert / Advanced) */
+.skill-level-badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    padding: 0.2rem 0.8rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    margin-top: 0.25rem;
+}
+
+.skill-item:hover .skill-level-badge {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    background: var(--bg-card);
+}
+
+/* Orlando Gito - Ajuste para Node.js (ícone wordmark) */
+.skill-item .devicon-nodejs-plain-wordmark {
+    font-size: 4rem;
 }
 
 /* ---------- Contato ---------- */
@@ -821,17 +859,18 @@ section {
         grid-template-columns: 1fr;
     }
 
+    /* Orlando Gito - Ajuste da grid de tecnologias no mobile */
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 1rem;
     }
 
     .skill-item {
-        padding: 1.5rem 0.5rem;
+        padding: 1.5rem 0.75rem;
     }
 
     .skill-item i {
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
 
     .skill-item .devicon-nodejs-plain-wordmark {
@@ -879,15 +918,20 @@ section {
     }
 
     .skill-item {
-        padding: 1rem 0.25rem;
+        padding: 1rem 0.5rem;
     }
 
     .skill-item i {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
-    .skill-item span {
+    .skill-item span:first-of-type {
         font-size: 0.75rem;
+    }
+
+    .skill-level-badge {
+        font-size: 0.5rem;
+        padding: 0.1rem 0.6rem;
     }
 
     .about-stats {
