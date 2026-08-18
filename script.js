@@ -8,8 +8,8 @@
     // ------------------------------------------------------------
     // Orlando Gito - Menu mobile
     // ------------------------------------------------------------
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    var hamburger = document.querySelector('.hamburger');
+    var navMenu = document.querySelector('.nav-menu');
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
@@ -33,7 +33,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            var target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -43,12 +43,12 @@
     // ------------------------------------------------------------
     // Orlando Gito - Destaque do link ativo na navbar
     // ------------------------------------------------------------
-    const sections = document.querySelectorAll('section[id]');
+    var sections = document.querySelectorAll('section[id]');
 
     function highlightNav() {
-        let current = '';
+        var current = '';
         sections.forEach(function(section) {
-            const sectionTop = section.offsetTop - 120;
+            var sectionTop = section.offsetTop - 120;
             if (window.scrollY >= sectionTop) {
                 current = section.getAttribute('id');
             }
@@ -68,18 +68,18 @@
     // ------------------------------------------------------------
     // Orlando Gito - Animação de contadores
     // ------------------------------------------------------------
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let counted = false;
+    var statNumbers = document.querySelectorAll('.stat-number');
+    var counted = false;
 
     function animateStats() {
         if (counted) return;
         statNumbers.forEach(function(stat) {
-            const rect = stat.getBoundingClientRect();
+            var rect = stat.getBoundingClientRect();
             if (rect.top < window.innerHeight - 100) {
-                const target = parseInt(stat.textContent, 10);
-                let count = 0;
-                const duration = 2000;
-                const increment = target / (duration / 16);
+                var target = parseInt(stat.textContent, 10);
+                var count = 0;
+                var duration = 2000;
+                var increment = target / (duration / 16);
 
                 function updateCount() {
                     if (count < target) {
@@ -102,7 +102,7 @@
     // ------------------------------------------------------------
     // Orlando Gito - Ano atual no rodapé
     // ------------------------------------------------------------
-    const yearElement = document.getElementById('currentYear');
+    var yearElement = document.getElementById('currentYear');
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
@@ -110,7 +110,7 @@
     // ------------------------------------------------------------
     // Orlando Gito - Clique no e-mail
     // ------------------------------------------------------------
-    const emailEl = document.querySelector('.clickable-email');
+    var emailEl = document.querySelector('.clickable-email');
     if (emailEl) {
         emailEl.addEventListener('click', function() {
             window.location.href = 'mailto:orlandochefito@gmail.com?subject=Contato%20via%20Portfólio';
@@ -122,7 +122,7 @@
     // ------------------------------------------------------------
     document.querySelectorAll('.clickable-phone').forEach(function(phone) {
         phone.addEventListener('click', function() {
-            const number = this.getAttribute('data-phone') || this.textContent.replace(/\D/g, '');
+            var number = this.getAttribute('data-phone') || this.textContent.replace(/\D/g, '');
             window.open('https://wa.me/258' + number.replace(/\D/g, ''), '_blank', 'noopener,noreferrer');
         });
     });
@@ -130,7 +130,7 @@
     // ------------------------------------------------------------
     // Orlando Gito - Clique na localização (Google Maps)
     // ------------------------------------------------------------
-    const locationEl = document.querySelector('.clickable-location');
+    var locationEl = document.querySelector('.clickable-location');
     if (locationEl) {
         locationEl.addEventListener('click', function() {
             window.open('https://www.google.com/maps/search/Matola-Machava-Km15,Maputo,Mozambique', '_blank', 'noopener,noreferrer');
@@ -150,12 +150,12 @@
     // ------------------------------------------------------------
     emailjs.init('YLbBx8DNU2grP2sdR');
 
-    const SERVICE_ID = 'service_s18xec4';
-    const TEMPLATE_ID = 'template_m4fhkxb';
+    var SERVICE_ID = 'service_s18xec4';
+    var TEMPLATE_ID = 'template_m4fhkxb';
 
-    const form = document.getElementById('contactForm');
-    const msgDiv = document.getElementById('formMessage');
-    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+    var form = document.getElementById('contactForm');
+    var msgDiv = document.getElementById('formMessage');
+    var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
     function showMessage(msg, type) {
         msgDiv.textContent = msg;
@@ -174,10 +174,10 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
+            var name = document.getElementById('name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var subject = document.getElementById('subject').value.trim();
+            var message = document.getElementById('message').value.trim();
 
             if (!name || !email || !message) {
                 showMessage('Por favor, preencha todos os campos obrigatórios.', 'error');
@@ -192,7 +192,7 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
-            const params = {
+            var params = {
                 from_name: name,
                 from_email: email,
                 subject: subject || 'Contato via Portfólio',

@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orlando Gito · Refined Portfolio</title>
-    <!-- Orlando Gito - Fontes e ícones -->
+
+    <!-- Orlando Gito - Fontes e ícones profissionais -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <!-- Orlando Gito - Font Awesome (ícones gerais) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Orlando Gito - Devicon (ícones oficiais de tecnologias) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,14 +25,15 @@
     ============================================================ -->
     <header class="navbar" role="navigation">
         <div class="container nav-container">
-            <a href="#" class="nav-logo">
+            <a href="#home" class="nav-logo">
                 <span class="logo-mark">◆</span>
                 <span class="logo-text">Orlando Gito</span>
             </a>
             <ul class="nav-menu">
-                <li><a href="#work" class="nav-link active">Trabalhos</a></li>
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#projects" class="nav-link">Trabalhos</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
-                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#skills" class="nav-link">Tecnologias</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
             <button class="hamburger" aria-label="Menu">
@@ -37,9 +45,9 @@
     </header>
 
     <!-- ============================================================
-    Orlando Gito - Seção Hero (Refined - clean & minimal)
+    Orlando Gito - Seção Hero (página inicial)
     ============================================================ -->
-    <section id="work" class="hero">
+    <section id="home" class="hero">
         <div class="container hero-container">
             <div class="hero-content">
                 <span class="hero-tag">Desenvolvedor Full Stack</span>
@@ -49,10 +57,10 @@
                 </h1>
                 <p class="hero-description">
                     Especialista em transformar ideias em produtos robustos e elegantes.
-                    React, Node.js, Python — com um olhar apurado para design e performance.
+                    PHP, Node.js, Python, Java — com um olhar apurado para design e performance.
                 </p>
                 <div class="hero-actions">
-                    <a href="#work" class="btn btn-primary">
+                    <a href="#projects" class="btn btn-primary">
                         <i class="fas fa-arrow-right"></i> Ver trabalhos
                     </a>
                     <a href="#contact" class="btn btn-outline">
@@ -89,7 +97,7 @@
     <!-- ============================================================
     Orlando Gito - Seção Trabalhos (Projetos)
     ============================================================ -->
-    <section id="work" class="work">
+    <section id="projects" class="work">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag"><i class="fas fa-grid-2"></i> Trabalhos recentes</span>
@@ -166,7 +174,7 @@
     </section>
 
     <!-- ============================================================
-    Orlando Gito - Seção Sobre (Refined - clean layout)
+    Orlando Gito - Seção Sobre
     ============================================================ -->
     <section id="about" class="about">
         <div class="container">
@@ -215,42 +223,62 @@
     </section>
 
     <!-- ============================================================
-    Orlando Gito - Seção Serviços
+    Orlando Gito - Seção Tecnologias (Skills) - Nível Sênior
     ============================================================ -->
-    <section id="services" class="services">
+    <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag"><i class="fas fa-cogs"></i> O que faço</span>
-                <h2 class="section-title">Serviços <span class="highlight">especializados</span></h2>
-                <p class="section-subtitle">Soluções sob medida para cada necessidade</p>
+                <span class="section-tag"><i class="fas fa-microchip"></i> Stack técnica</span>
+                <h2 class="section-title">Tecnologias que <span class="highlight">domino</span></h2>
+                <p class="section-subtitle">Ferramentas e linguagens que utilizo no dia a dia para entregar soluções de alto impacto</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-layer-group"></i></div>
-                    <h3>Desenvolvimento Web</h3>
-                    <p>Aplicações web modernas com React, Next.js e ecossistema JavaScript.</p>
+            <div class="skills-grid">
+                <!-- Orlando Gito - PHP -->
+                <div class="skill-item">
+                    <i class="devicon-php-plain colored"></i>
+                    <span>PHP</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-server"></i></div>
-                    <h3>Backend & APIs</h3>
-                    <p>APIs robustas e escaláveis com Node.js, Python e arquitetura de microsserviços.</p>
+                <!-- Orlando Gito - Node.js -->
+                <div class="skill-item">
+                    <i class="devicon-nodejs-plain-wordmark colored"></i>
+                    <span>Node.js</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-mobile-screen"></i></div>
-                    <h3>Aplicativos Mobile</h3>
-                    <p>Apps nativos e híbridos com React Native e Flutter.</p>
+                <!-- Orlando Gito - JavaScript -->
+                <div class="skill-item">
+                    <i class="devicon-javascript-plain colored"></i>
+                    <span>JavaScript</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-                    <h3>DevOps & Cloud</h3>
-                    <p>Infraestrutura na nuvem, CI/CD, Docker e Kubernetes.</p>
+                <!-- Orlando Gito - PostgreSQL -->
+                <div class="skill-item">
+                    <i class="devicon-postgresql-plain colored"></i>
+                    <span>PostgreSQL</span>
+                </div>
+                <!-- Orlando Gito - MongoDB -->
+                <div class="skill-item">
+                    <i class="devicon-mongodb-plain colored"></i>
+                    <span>MongoDB</span>
+                </div>
+                <!-- Orlando Gito - MySQL -->
+                <div class="skill-item">
+                    <i class="devicon-mysql-plain colored"></i>
+                    <span>MySQL</span>
+                </div>
+                <!-- Orlando Gito - Java -->
+                <div class="skill-item">
+                    <i class="devicon-java-plain colored"></i>
+                    <span>Java</span>
+                </div>
+                <!-- Orlando Gito - Python -->
+                <div class="skill-item">
+                    <i class="devicon-python-plain colored"></i>
+                    <span>Python</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    Orlando Gito - Seção Contato (Refined - clean form)
+    Orlando Gito - Seção Contato
     ============================================================ -->
     <section id="contact" class="contact">
         <div class="container">
