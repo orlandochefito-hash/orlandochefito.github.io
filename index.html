@@ -3,124 +3,208 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orlando Gito · Desenvolvedor Full Stack</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <title>Orlando Gito · Refined Portfolio</title>
+    <!-- Orlando Gito - Fontes e ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- Orlando Gito - Navegação -->
-    <header class="navbar">
-        <div class="nav-container">
+    <!-- ============================================================
+    Orlando Gito - Barra de navegação fixa (Refined style)
+    ============================================================ -->
+    <header class="navbar" role="navigation">
+        <div class="container nav-container">
             <a href="#" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>
+                <span class="logo-mark">◆</span>
                 <span class="logo-text">Orlando Gito</span>
-                <span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav-menu">
-                <li><a href="#hero" class="nav-link active">Início</a></li>
+                <li><a href="#work" class="nav-link active">Trabalhos</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
-                <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </header>
 
-    <!-- Orlando Gito - Hero -->
-    <section id="hero" class="hero">
+    <!-- ============================================================
+    Orlando Gito - Seção Hero (Refined - clean & minimal)
+    ============================================================ -->
+    <section id="work" class="hero">
         <div class="container hero-container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-code"></i> Full Stack Developer
-                </div>
+                <span class="hero-tag">Desenvolvedor Full Stack</span>
                 <h1 class="hero-title">
-                    Olá, eu sou <span class="highlight">Orlando Gito</span>
+                    Criando experiências<br />
+                    <span class="highlight">digitais memoráveis</span>
                 </h1>
-                <p class="hero-subtitle">&gt; const developer = { passion: 'Criar soluções escaláveis' };</p>
                 <p class="hero-description">
-                    Especialista em construir produtos digitais robustos e experiências excepcionais.
-                    React, Node.js, Python e cloud computing.
+                    Especialista em transformar ideias em produtos robustos e elegantes.
+                    React, Node.js, Python — com um olhar apurado para design e performance.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Ver Projetos
+                <div class="hero-actions">
+                    <a href="#work" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> Ver trabalhos
                     </a>
                     <a href="#contact" class="btn btn-outline">
-                        <i class="fas fa-paper-plane"></i> Contato
+                        <i class="fas fa-paper-plane"></i> Entrar em contato
                     </a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">5+</span>
-                        <span class="stat-label">Anos de experiência</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">12</span>
-                        <span class="stat-label">Projetos entregues</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">100%</span>
-                        <span class="stat-label">Satisfação</span>
-                    </div>
+                <div class="hero-meta">
+                    <span><i class="fas fa-check-circle"></i> 5+ anos de experiência</span>
+                    <span><i class="fas fa-check-circle"></i> 12 projetos entregues</span>
+                    <span><i class="fas fa-check-circle"></i> 100% satisfação</span>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center" alt="Desenvolvedor" />
-                <div class="code-overlay">
-                    <pre class="code-snippet">
-                        <span class="code-keyword">const</span> <span class="code-function">developer</span> = {
-                        nome: <span class="code-string">"Orlando"</span>,
-                        stack: [<span class="code-string">"React"</span>, <span class="code-string">"Node"</span>]
-                        };
-                    </pre>
+            <div class="hero-visual">
+                <!-- Orlando Gito - Elemento visual abstrato (sem imagens) -->
+                <div class="visual-grid">
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                </div>
+                <div class="visual-badge">
+                    <i class="fas fa-code"></i>
+                    <span>const developer = { passion: 'criar' };</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Orlando Gito - Sobre -->
-    <section id="about" class="about">
+    <!-- ============================================================
+    Orlando Gito - Seção Trabalhos (Projetos)
+    ============================================================ -->
+    <section id="work" class="work">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag"><i class="fas fa-user-astronaut"></i> Sobre</span>
-                <h2 class="section-title">Conheça minha trajetória</h2>
-                <div class="section-divider"></div>
+                <span class="section-tag"><i class="fas fa-grid-2"></i> Trabalhos recentes</span>
+                <h2 class="section-title">Projetos que <span class="highlight">entregam valor</span></h2>
+                <p class="section-subtitle">Uma seleção de soluções que criei para clientes reais</p>
             </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center" alt="Workspace" />
+            <div class="work-grid">
+                <!-- Projeto 1 -->
+                <a href="#" class="work-card">
+                    <div class="work-card-visual">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="work-card-info">
+                        <span class="work-tag">Dashboard</span>
+                        <h3>Analytics Platform</h3>
+                        <p>Painel interativo com gráficos em tempo real e insights acionáveis.</p>
+                        <div class="work-tech">
+                            <span>React</span>
+                            <span>D3</span>
+                            <span>Node</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Projeto 2 -->
+                <a href="#" class="work-card">
+                    <div class="work-card-visual">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="work-card-info">
+                        <span class="work-tag">E-commerce</span>
+                        <h3>Marketplace de Moda</h3>
+                        <p>Plataforma completa com pagamentos, estoque e gestão de pedidos.</p>
+                        <div class="work-tech">
+                            <span>Next.js</span>
+                            <span>Stripe</span>
+                            <span>Postgres</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Projeto 3 -->
+                <a href="#" class="work-card">
+                    <div class="work-card-visual">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <div class="work-card-info">
+                        <span class="work-tag">Mobile</span>
+                        <h3>Fitness Tracker</h3>
+                        <p>Aplicativo para monitoramento de treinos com sincronização em nuvem.</p>
+                        <div class="work-tech">
+                            <span>React Native</span>
+                            <span>Firebase</span>
+                            <span>Redux</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Projeto 4 -->
+                <a href="#" class="work-card">
+                    <div class="work-card-visual">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="work-card-info">
+                        <span class="work-tag">IA</span>
+                        <h3>Chatbot Inteligente</h3>
+                        <p>Assistente virtual com NLP para atendimento automatizado 24/7.</p>
+                        <div class="work-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>FastAPI</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    Orlando Gito - Seção Sobre (Refined - clean layout)
+    ============================================================ -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <!-- Orlando Gito - Elemento visual abstrato -->
+                    <div class="about-shape"></div>
+                    <div class="about-icon-ring">
+                        <i class="fas fa-terminal"></i>
+                        <i class="fas fa-database"></i>
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-lock"></i>
+                    </div>
                 </div>
-                <div class="about-text">
-                    <h3>Desenvolvedor apaixonado por tecnologia e inovação</h3>
+                <div class="about-content">
+                    <span class="section-tag"><i class="fas fa-user"></i> Sobre mim</span>
+                    <h2 class="section-title">Mais do que código, <span class="highlight">soluções</span></h2>
                     <p>
-                        Com mais de 5 anos construindo soluções para startups e empresas, 
-                        hoje me especializo em arquiteturas de microsserviços e interfaces 
-                        de alta performance.
+                        Com mais de 5 anos de experiência no desenvolvimento de software,
+                        atuo desde a concepção até a entrega de produtos digitais de alta qualidade.
+                        Minha abordagem combina engenharia de software com design thinking para
+                        criar experiências que realmente fazem a diferença.
                     </p>
                     <p>
-                        Acredito que código limpo e bem documentado é a base de qualquer 
-                        produto duradouro. Busco sempre aprender e compartilhar conhecimento.
+                        Acredito que um bom desenvolvedor não é apenas aquele que escreve código,
+                        mas quem entende o problema e constrói a solução certa — com simplicidade,
+                        elegância e performance.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
-                            <i class="fas fa-code"></i>
                             <span class="stat-number">8</span>
                             <span class="stat-label">Linguagens</span>
                         </div>
                         <div class="stat">
-                            <i class="fas fa-database"></i>
                             <span class="stat-number">5</span>
                             <span class="stat-label">Bancos de dados</span>
                         </div>
                         <div class="stat">
-                            <i class="fas fa-cloud"></i>
                             <span class="stat-number">3</span>
                             <span class="stat-label">Clouds</span>
                         </div>
@@ -130,148 +214,96 @@
         </div>
     </section>
 
-    <!-- Orlando Gito - Habilidades -->
-    <section id="skills" class="skills">
+    <!-- ============================================================
+    Orlando Gito - Seção Serviços
+    ============================================================ -->
+    <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag"><i class="fas fa-cogs"></i> Habilidades</span>
-                <h2 class="section-title">Tecnologias que domino</h2>
-                <div class="section-divider"></div>
+                <span class="section-tag"><i class="fas fa-cogs"></i> O que faço</span>
+                <h2 class="section-title">Serviços <span class="highlight">especializados</span></h2>
+                <p class="section-subtitle">Soluções sob medida para cada necessidade</p>
             </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">⚛️</div>
-                    <h3>React & Next.js</h3>
-                    <div class="skill-level"><div class="skill-progress" style="width:90%"></div></div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Aplicações web modernas com React, Next.js e ecossistema JavaScript.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🟢</div>
-                    <h3>Node.js / Express</h3>
-                    <div class="skill-level"><div class="skill-progress" style="width:85%"></div></div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend & APIs</h3>
+                    <p>APIs robustas e escaláveis com Node.js, Python e arquitetura de microsserviços.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🐍</div>
-                    <h3>Python / Django</h3>
-                    <div class="skill-level"><div class="skill-progress" style="width:80%"></div></div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-screen"></i></div>
+                    <h3>Aplicativos Mobile</h3>
+                    <p>Apps nativos e híbridos com React Native e Flutter.</p>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>PostgreSQL / MongoDB</h3>
-                    <div class="skill-level"><div class="skill-progress" style="width:75%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">☁️</div>
-                    <h3>AWS / Docker</h3>
-                    <div class="skill-level"><div class="skill-progress" style="width:70%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3>CI/CD (GitHub Actions)</h3>
-                    <div class="skill-level"><div class="skill-progress" style="width:65%"></div></div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+                    <h3>DevOps & Cloud</h3>
+                    <p>Infraestrutura na nuvem, CI/CD, Docker e Kubernetes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Orlando Gito - Projetos -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i class="fas fa-laptop-code"></i> Portfólio</span>
-                <h2 class="section-title">Projetos recentes</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center" alt="Dashboard" />
-                    <div class="project-info">
-                        <h3>Analytics Dashboard</h3>
-                        <p>Painel interativo com gráficos em tempo real e insights.</p>
-                        <div class="project-tech">
-                            <span>React</span><span>D3</span><span>Node</span><span>Socket.io</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center" alt="E-commerce" />
-                    <div class="project-info">
-                        <h3>Marketplace de Moda</h3>
-                        <p>Plataforma completa com pagamentos e gestão de estoque.</p>
-                        <div class="project-tech">
-                            <span>Next.js</span><span>Stripe</span><span>Prisma</span><span>PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop&crop=center" alt="App fitness" />
-                    <div class="project-info">
-                        <h3>Fitness Tracker</h3>
-                        <p>App mobile com sincronização em nuvem e acompanhamento.</p>
-                        <div class="project-tech">
-                            <span>React Native</span><span>Firebase</span><span>Redux</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Orlando Gito - Contato -->
+    <!-- ============================================================
+    Orlando Gito - Seção Contato (Refined - clean form)
+    ============================================================ -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i class="fas fa-envelope"></i> Contato</span>
-                <h2 class="section-title">Vamos trabalhar juntos?</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="contact-container">
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <h3>E-mail</h3>
-                        <p class="clickable-email">orlandochefito@gmail.com</p>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fas fa-phone"></i>
-                        <h3>WhatsApp</h3>
-                        <p class="clickable-phone" data-phone="841234567">+258 84 123 4567</p>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Localização</h3>
-                        <p class="clickable-location">Matola-Machava Km15, Maputo</p>
+                    <span class="section-tag"><i class="fas fa-envelope"></i> Contato</span>
+                    <h2 class="section-title">Vamos <span class="highlight">conversar</span></h2>
+                    <p>
+                        Tem um projeto em mente? Entre em contato e vamos transformar sua ideia
+                        em realidade.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span class="clickable-email">orlandochefito@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span class="clickable-phone" data-phone="841234567">+258 84 123 4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-location-dot"></i>
+                            <span class="clickable-location">Matola-Machava Km15, Maputo</span>
+                        </div>
                     </div>
                     <div class="contact-social">
-                        <h3>Redes sociais</h3>
-                        <div class="social-links">
-                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        </div>
+                        <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
-                        <div class="input-group">
-                            <i class="fas fa-user"></i>
+                        <div class="form-group">
+                            <label for="name">Nome</label>
                             <input type="text" id="name" placeholder="Seu nome" required />
                         </div>
-                        <div class="input-group">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="email" placeholder="Seu e-mail" required />
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" placeholder="seu@email.com" required />
                         </div>
-                        <div class="input-group">
-                            <i class="fas fa-tag"></i>
-                            <input type="text" id="subject" placeholder="Assunto" />
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" placeholder="Assunto da mensagem" />
                         </div>
-                        <div class="input-group">
-                            <i class="fas fa-comment"></i>
-                            <textarea id="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" rows="4" placeholder="Sua mensagem..." required></textarea>
                         </div>
                         <div id="formMessage" style="display:none;"></div>
                         <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                            <i class="fas fa-paper-plane"></i> Enviar mensagem
                         </button>
                     </form>
                 </div>
@@ -279,25 +311,26 @@
         </div>
     </section>
 
-    <!-- Orlando Gito - Rodapé -->
+    <!-- ============================================================
+    Orlando Gito - Rodapé
+    ============================================================ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Orlando Gito</span>
-                    <span class="logo-bracket">/&gt;</span>
-                </div>
+                <span class="footer-logo">◆ Orlando Gito</span>
                 <p class="footer-text">
                     &copy; <span id="currentYear"></span> · Feito com
-                    <i class="fas fa-heart"></i> por Orlando Gito
+                    <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                    e <i class="fas fa-code"></i> por Orlando Gito
                 </p>
-                <p class="footer-tagline">Sempre evoluindo.</p>
+                <p class="footer-tagline">Refined · Minimal · Professional</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Orlando Gito - Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

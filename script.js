@@ -1,12 +1,12 @@
 /* =============================================
-   Orlando Gito - Scripts principais do portfólio
+   Orlando Gito - Refined Portfolio Scripts
    ============================================= */
 
 (function() {
     'use strict';
 
     // ------------------------------------------------------------
-    // Orlando Gito - Menu mobile e navegação
+    // Orlando Gito - Menu mobile
     // ------------------------------------------------------------
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -18,7 +18,6 @@
             document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Orlando Gito - Fecha menu ao clicar em um link
         document.querySelectorAll('.nav-link').forEach(function(link) {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
@@ -29,7 +28,7 @@
     }
 
     // ------------------------------------------------------------
-    // Orlando Gito - Rolagem suave para links âncora
+    // Orlando Gito - Scroll suave para âncoras
     // ------------------------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
@@ -42,26 +41,15 @@
     });
 
     // ------------------------------------------------------------
-    // Orlando Gito - Efeito de scroll na navbar e destaque do link ativo
+    // Orlando Gito - Destaque do link ativo na navbar
     // ------------------------------------------------------------
-    const navbar = document.querySelector('.navbar');
+    const sections = document.querySelectorAll('section[id]');
 
-    window.addEventListener('scroll', function() {
-        // Orlando Gito - Muda opacidade da navbar
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(2, 6, 23, 0.98)';
-            navbar.style.backdropFilter = 'blur(12px)';
-        } else {
-            navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-            navbar.style.backdropFilter = 'blur(12px)';
-        }
-
-        // Orlando Gito - Destaca o link da seção visível
+    function highlightNav() {
         let current = '';
-        document.querySelectorAll('section').forEach(function(section) {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 200) {
+        sections.forEach(function(section) {
+            const sectionTop = section.offsetTop - 120;
+            if (window.scrollY >= sectionTop) {
                 current = section.getAttribute('id');
             }
         });
@@ -72,56 +60,13 @@
                 link.classList.add('active');
             }
         });
-    });
-
-    // ------------------------------------------------------------
-    // Orlando Gito - Anima as barras de habilidade ao entrar na viewport
-    // ------------------------------------------------------------
-    const skillCards = document.querySelectorAll('.skill-card');
-    let skillsAnimated = false;
-
-    function animateSkills() {
-        if (skillsAnimated) return;
-        skillCards.forEach(function(card) {
-            const rect = card.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-                const progressBar = card.querySelector('.skill-progress');
-                if (progressBar && !card.classList.contains('animated')) {
-                    const width = progressBar.style.width;
-                    progressBar.style.width = '0%';
-                    setTimeout(function() {
-                        progressBar.style.width = width;
-                    }, 100);
-                    card.classList.add('animated');
-                }
-            }
-        });
-        skillsAnimated = true;
     }
 
-    window.addEventListener('scroll', animateSkills);
-    window.addEventListener('load', animateSkills);
+    window.addEventListener('scroll', highlightNav);
+    window.addEventListener('load', highlightNav);
 
     // ------------------------------------------------------------
-    // Orlando Gito - Efeito de máquina de escrever no subtítulo do hero
-    // ------------------------------------------------------------
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    if (heroSubtitle) {
-        const text = heroSubtitle.textContent;
-        heroSubtitle.textContent = '';
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                heroSubtitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 80);
-            }
-        }
-        setTimeout(typeWriter, 500);
-    }
-
-    // ------------------------------------------------------------
-    // Orlando Gito - Contador animado para as estatísticas
+    // Orlando Gito - Animação de contadores
     // ------------------------------------------------------------
     const statNumbers = document.querySelectorAll('.stat-number');
     let counted = false;
@@ -155,18 +100,7 @@
     window.addEventListener('load', animateStats);
 
     // ------------------------------------------------------------
-    // Orlando Gito - Efeito parallax no hero
-    // ------------------------------------------------------------
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.scrollY;
-            hero.style.backgroundPositionY = (scrolled * 0.5) + 'px';
-        });
-    }
-
-    // ------------------------------------------------------------
-    // Orlando Gito - Atualiza o ano no rodapé dinamicamente
+    // Orlando Gito - Ano atual no rodapé
     // ------------------------------------------------------------
     const yearElement = document.getElementById('currentYear');
     if (yearElement) {
@@ -174,92 +108,61 @@
     }
 
     // ------------------------------------------------------------
-    // Orlando Gito - Loading fade-in
+    // Orlando Gito - Clique no e-mail
     // ------------------------------------------------------------
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '1';
-        document.body.style.transition = 'opacity 0.5s';
-        document.body.classList.add('loaded');
-    });
-
-    // ------------------------------------------------------------
-    // Orlando Gito - Clique no e-mail (abre cliente de e-mail)
-    // ------------------------------------------------------------
-    const emailElement = document.querySelector('.clickable-email');
-    if (emailElement) {
-        emailElement.addEventListener('click', function() {
+    const emailEl = document.querySelector('.clickable-email');
+    if (emailEl) {
+        emailEl.addEventListener('click', function() {
             window.location.href = 'mailto:orlandochefito@gmail.com?subject=Contato%20via%20Portfólio';
         });
     }
 
     // ------------------------------------------------------------
-    // Orlando Gito - Clique nos telefones (abre WhatsApp)
+    // Orlando Gito - Clique no telefone (WhatsApp)
     // ------------------------------------------------------------
     document.querySelectorAll('.clickable-phone').forEach(function(phone) {
         phone.addEventListener('click', function() {
-            const phoneNumber = this.getAttribute('data-phone') || this.textContent.replace(/\D/g, '');
-            const cleanNumber = phoneNumber.replace(/\D/g, '');
-            window.open('https://wa.me/258' + cleanNumber, '_blank', 'noopener,noreferrer');
+            const number = this.getAttribute('data-phone') || this.textContent.replace(/\D/g, '');
+            window.open('https://wa.me/258' + number.replace(/\D/g, ''), '_blank', 'noopener,noreferrer');
         });
     });
 
     // ------------------------------------------------------------
-    // Orlando Gito - Clique na localização (abre Google Maps)
+    // Orlando Gito - Clique na localização (Google Maps)
     // ------------------------------------------------------------
-    const locationElement = document.querySelector('.clickable-location');
-    if (locationElement) {
-        locationElement.addEventListener('click', function() {
+    const locationEl = document.querySelector('.clickable-location');
+    if (locationEl) {
+        locationEl.addEventListener('click', function() {
             window.open('https://www.google.com/maps/search/Matola-Machava-Km15,Maputo,Mozambique', '_blank', 'noopener,noreferrer');
         });
     }
 
     // ------------------------------------------------------------
-    // Orlando Gito - Validação simples dos campos do formulário
+    // Orlando Gito - Redes sociais (abrir em nova aba)
     // ------------------------------------------------------------
-    document.querySelectorAll('.input-group input, .input-group textarea').forEach(function(input) {
-        input.addEventListener('blur', function() {
-            if (this.hasAttribute('required') && !this.value.trim()) {
-                this.style.borderColor = '#ef4444';
-            } else {
-                this.style.borderColor = 'rgba(16, 185, 129, 0.2)';
-            }
-        });
-        input.addEventListener('input', function() {
-            this.style.borderColor = 'rgba(16, 185, 129, 0.2)';
-        });
+    document.querySelectorAll('.social-link').forEach(function(link) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
     });
 
     // ------------------------------------------------------------
-    // Orlando Gito - Garante que links sociais abram em nova aba
+    // Orlando Gito - EmailJS (envio de mensagens)
     // ------------------------------------------------------------
-    document.querySelectorAll('.social-icon').forEach(function(link) {
-        if (!link.getAttribute('target')) {
-            link.setAttribute('target', '_blank');
-        }
-        if (!link.getAttribute('rel')) {
-            link.setAttribute('rel', 'noopener noreferrer');
-        }
-    });
-
-    // ------------------------------------------------------------
-    // Orlando Gito - Configuração do EmailJS (envio de mensagens)
-    // ------------------------------------------------------------
-    // Inicializa o EmailJS com a chave pública
     emailjs.init('YLbBx8DNU2grP2sdR');
 
-    const EMAILJS_SERVICE_ID = 'service_s18xec4';
-    const EMAILJS_TEMPLATE_ID = 'template_m4fhkxb';
+    const SERVICE_ID = 'service_s18xec4';
+    const TEMPLATE_ID = 'template_m4fhkxb';
 
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
-    const submitBtn = document.querySelector('#contactForm button[type="submit"]');
+    const form = document.getElementById('contactForm');
+    const msgDiv = document.getElementById('formMessage');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
     function showMessage(msg, type) {
-        formMessage.textContent = msg;
-        formMessage.className = 'form-message ' + type;
-        formMessage.style.display = 'block';
+        msgDiv.textContent = msg;
+        msgDiv.className = type;
+        msgDiv.style.display = 'block';
         setTimeout(function() {
-            formMessage.style.display = 'none';
+            msgDiv.style.display = 'none';
         }, 5000);
     }
 
@@ -267,8 +170,8 @@
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+    if (form && submitBtn) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value.trim();
@@ -289,7 +192,7 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
-            const templateParams = {
+            const params = {
                 from_name: name,
                 from_email: email,
                 subject: subject || 'Contato via Portfólio',
@@ -297,19 +200,17 @@
                 to_email: 'orlandochefito@gmail.com'
             };
 
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
+                .then(function() {
                     showMessage('✅ Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
-                    contactForm.reset();
+                    form.reset();
                 })
-                .catch(function(error) {
-                    console.log('FAILED...', error);
+                .catch(function() {
                     showMessage('❌ Erro ao enviar mensagem. Por favor, tente novamente.', 'error');
                 })
                 .finally(function() {
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar mensagem';
                 });
         });
     }
